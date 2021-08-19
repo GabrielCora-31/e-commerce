@@ -36,12 +36,15 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
+  background-image: url("../img/login.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: #fff;
+  background: rgb(108, 217, 231);
   padding: 30px;
   width: 90%;
   max-width: 450px;
@@ -50,6 +53,7 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
+  opacity: 90%;
 }
 
 #formFooter {
@@ -77,7 +81,7 @@ h2.active {
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  background-color: #56baed;
+  background-color: #064b6e;
   border: none;
   color: white;
   padding: 15px 80px;
