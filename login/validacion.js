@@ -1,7 +1,9 @@
+// Aqui tomamos el click del 'Log In' para trabajar con los datos de ingreso (validacion y almacenamiento de user):
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("formulario")
     .addEventListener("submit", validarFormulario);
+  document.addEventListener("submit", setUser);
 });
 // funcion para validar que los campos esten rellenados y no vacios
 function validarFormulario(evento) {
@@ -20,4 +22,9 @@ function validarFormulario(evento) {
     return;
   }
   this.submit();
+}
+// Mediante la siguiente funcion obtengo el usuario ingresado en el login y lo almaceno en el localStorage para posteriormente mostrarlo:
+function setUser() {
+  var userName = document.getElementById("login").value;
+  localStorage.setItem("user", userName);
 }
