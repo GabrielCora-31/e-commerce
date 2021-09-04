@@ -29,6 +29,11 @@ function showProductsList(array) {
                     <p>` +
       product.description +
       `</p>
+      <p>` +
+      product.cost +
+      ` ` +
+      product.currency +
+      `
                 </div>
             </div>
         </div>
