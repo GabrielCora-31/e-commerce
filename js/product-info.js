@@ -117,6 +117,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
       showComments(comentarios);
     }
   });
-  // let submit = getElementById("buttonForSubmit");
-  // submit.addEventListener("submit", addComments());
 });
