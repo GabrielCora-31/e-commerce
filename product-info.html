@@ -28,7 +28,7 @@
   </head>
 
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
+    <nav class="site-header navbar-expand-xg sticky-top py-1 bg-dark">
       <div
         class="container d-flex flex-column flex-md-row justify-content-between"
       >
@@ -40,11 +40,16 @@
           >Productos</a
         >
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="index.html"
-          >Bienvenid@
-          <p id="userLogIn"></p>
-        </a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Bienvenid@ <p id="userLogIn"></p>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" onclick="logOut()" href="index.html">Cerrar sesion</a>
+          </div>
+        </div>
       </div>
     </nav>
     <main role="main">
@@ -99,44 +104,48 @@
         <form action="#" id="formComments">
           <div class="form-floating" id="addComment">
             <textarea
-              class="form-control"
-              placeholder="Escriba aqui..."
-              id="floatingTextarea2"
-              style="height: 100px"
+            class="form-control"
+            placeholder="Escriba aqui..."
+            id="floatingTextarea2"
+            style="height: 100px"
             ></textarea>
             <label for="floatingTextarea2"
-              ><select
-                id="score"
-                class="form-select"
-                aria-label="Default select example"
-              >
-                <option value="1">Muy malo</option>
-                <option value="2">Malo</option>
-                <option value="3">Bueno</option>
-                <option value="4">Muy bueno</option>
-                <option selected value="5">Excelente</option>
-              </select></label
+            ><select
+            id="score"
+            class="form-select"
+            aria-label="Default select example"
             >
-            <div class="col-12">
-              <input
-                onclick="addComments()"
-                class="btn btn-primary"
-                type="submit"
-                id="buttonForSubmit"
-              >
-            </input>
-            </div>
-          </div>
-        </form>
-        <a
-          type="button"
-          class="btn btn-light btn-lg btn-block"
-          href="products.html"
-          >Ver productos</a
-        >
+            <option value="1">Muy malo</option>
+            <option value="2">Malo</option>
+            <option value="3">Bueno</option>
+            <option value="4">Muy bueno</option>
+            <option selected value="5">Excelente</option>
+          </select></label
+          >
+          <div class="col-12">
+            <input
+            onclick="addComments()"
+            class="btn btn-primary"
+            type="submit"
+            id="buttonForSubmit"
+            >
+          </input>
+        </div>
       </div>
-    </main>
-    <footer class="text-muted">
+    </form>
+    <!-- Espacio creado para agregar los productos relacionados al producto -->
+    <h3><b>Productos relacionados</b></h3>
+    <div id="related" class="card-group">
+    </div>
+    <a
+    type="button"
+    class="btn btn-light btn-lg btn-block"
+    href="products.html"
+    >Ver productos</a
+    >
+  </div>
+</main>
+<footer class="text-muted">
       <div class="container">
         <p class="float-right">
           <a href="#">Volver arriba</a>

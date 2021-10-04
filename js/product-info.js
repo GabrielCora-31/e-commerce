@@ -5,7 +5,6 @@ function showImagesGallery(array) {
 
   for (let i = 0; i < array.length; i++) {
     let imageSrc = array[i];
-
     htmlContentToAppend +=
       `
         <div class="col-lg-3 col-md-4 col-6">
@@ -82,6 +81,8 @@ function addComments() {
   document.getElementById("formComments").reset();
 }
 
+function showRelated(lista) {}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -107,8 +108,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
       //Muestro las imagenes en forma de galería
       showImagesGallery(product.images);
+      showRelated();
     }
   });
+
   //  Aqui obtenemos los comentarios acerca de los produtos que nos son dados a traves de un JSON y se
   //  llama a la funcion que los muestra
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
@@ -118,3 +121,40 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
   });
 });
+
+// Aqui viene el código relacionado a la entrega 4 que
+// consiste en mostrar los productos relacionados al que se muestra actualmente
+
+function showRelated() {
+  // Guardo en una variable el array de productos que luego voy a usar para tomar los relacionados
+  let productArray = [];
+  // Variables necesarias para trabajar en el HTML
+  let htmlContentToAppend2 = "";
+  let related = document.getElementById("related");
+  // Aqui obtengo la lista de productos para procesarla y mostrar solo los relacionados
+  getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      productArray = resultObj.data;
+    }
+    // Mediante este FOR recorro la propiedad relatedProducts que contiene un array del producto actual
+    // y lo uso para mostrar los productos que se correspondan a la posicion en productArray con el valor de cada posicion
+    // de relatedProduct
+    for (let i = 0; i < product.relatedProducts.length; i++) {
+      htmlContentToAppend2 =
+        `<div class="card">
+    <img src="` +
+        productArray[product.relatedProducts[i]].imgSrc +
+        `" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">` +
+        productArray[product.relatedProducts[i]].name +
+        `</h5>
+      <p class="card-text">` +
+        productArray[product.relatedProducts[i]].description +
+        `</p>
+    </div>
+  </div>`;
+      related.innerHTML += htmlContentToAppend2;
+    }
+  });
+}
