@@ -76,24 +76,148 @@
         </div>
       </div>
     </nav>
-    <div class="container p-5">
-      <div
-        class="alert alert-danger"
-        role="alert"
-        style="position: relative; width: auto; top: 0"
-      >
-        <h4 class="alert-heading">¡A trabajar! :)</h4>
-        <p>
-          Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y
-          Entrega 7 (Fecha de entrega: 14/11/2021).
+    <main role="main" class="pb-5">
+      <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
+      </div>
+
+      <div style="margin-left: 75%">
+        Moneda:
+        <button id="uruguayos" class="btn btn-primary">pesos</button>
+        <button id="dolares" class="btn btn-secondary">dolares</button>
+      </div>
+
+      <div class="container" id="cart">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="carrito"></tbody>
+        </table>
+      </div>
+      <div class="card card-body p-5">
+        <h3>Tipo de envío</h3>
+
+        <form action="">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="15%"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              Premium 2-5 dias (15%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="7%"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              Express 5-8 dias (7%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="5%"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              Standard 12-15 dias (5%)
+            </label>
+          </div>
+        </form>
+        <h3 class="ml-0.9 mt-5 mb-1">Dirección de envio</h3>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Calle</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Numero de puerta</label
+            >
+            <input type="number" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Esquina</label>
+            <input type="text" class="form-control" />
+          </div>
+        </form>
+        <h3 class="ml-0 mt-5 mb-1">Costos</h3>
+        <div class="container m-0">
+          <ul class="list-group border border-primary p-0">
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-center
+              "
+            >
+              Sub total
+              <span
+                class="badge badge-primary badge-pill"
+                id="subtotalCost"
+              ></span>
+            </li>
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-center
+              "
+            >
+              Costo de envio
+              <span class="badge badge-primary badge-pill" id="costPrice"
+                >0</span
+              >
+            </li>
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-center
+              "
+            >
+              TOTAL $
+              <span class="badge badge-primary badge-pill" id="totalCost"
+                >0</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer class="text-muted bg-light">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
         </p>
-        <hr />
-        <p class="mb-0">
-          Para saber qué debes hacer, fijate en la actividad en CREA
-          correspondiente a esta entrega.
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>
+          Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la
+          letra del obligatorio.
         </p>
       </div>
-    </div>
+    </footer>
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
