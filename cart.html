@@ -105,13 +105,30 @@
       <form action="">
         <div class="card card-body p-5">
           <h3>Tipo de envío</h3>
+        </dl>
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="premium" name="publicationType" type="radio" class="custom-control-input" value="option"
+              required />
+            <label class="custom-control-label" for="premium">Premium 2 - 5 días (15%)</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="express" name="publicationType" type="radio" class="custom-control-input" value="option" />
+            <label class="custom-control-label" for="express">Express 5 - 8 días (7%)</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="standard" name="publicationType" type="radio" class="custom-control-input" value="option" />
+            <label class="custom-control-label" for="standard">Standard 12 - 15 días (5%)</label>
+          </div>
 
-          <div class="form-check">
+        </div>
+        <dl>
+          <!-- <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
               name="exampleRadios"
-              id="exampleRadios1"
+              id="premium"
               value="15%"
             />
             <label class="form-check-label" for="exampleRadios1">
@@ -123,7 +140,7 @@
               class="form-check-input"
               type="radio"
               name="exampleRadios"
-              id="exampleRadios1"
+              id="express"
               value="7%"
             />
             <label class="form-check-label" for="exampleRadios1">
@@ -135,13 +152,13 @@
               class="form-check-input"
               type="radio"
               name="exampleRadios"
-              id="exampleRadios1"
+              id="standard"
               value="5%"
             />
             <label class="form-check-label" for="exampleRadios1">
               Standard 12-15 dias (5%)
             </label>
-          </div>
+          </div> -->
           <h3 class="ml-0.9 mt-5 mb-1">Dirección de envio</h3>
           <form>
             <div class="mb-3">

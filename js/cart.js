@@ -1,6 +1,24 @@
 // Inicializo variables necesarias:
 let cartProducts = [];
 let currency = "UYU";
+let shippingTax = 0;
+
+// La funcion a continuacion calculara la tarifa de envio a calcular
+
+function letShippingTax() {
+  document.getElementById("premium").addEventListener("change", function () {
+    shippingTax = 0.15;
+    sumaSubtotales();
+  });
+  document.getElementById("express").addEventListener("change", function () {
+    shippingTax = 0.07;
+    sumaSubtotales();
+  });
+  document.getElementById("standard").addEventListener("change", function () {
+    shippingTax = 0.05;
+    sumaSubtotales();
+  });
+}
 
 // Esta funcion actualiza el valor del subtotal a medida que modificamos la cantidad de productos en el carrito
 function updateProductSubtotal(id) {
@@ -87,8 +105,10 @@ function sumaSubtotales() {
 
   document.getElementById("sumaSubtotal").innerHTML = subtotal;
   document.getElementById("subtotalCost").innerHTML = subtotal;
-  // Aqui habra que modificar a futuro para incluir el monto extra del metodo de envio
-  document.getElementById("totalCost").innerHTML = subtotal;
+  letShippingTax();
+  let shippingCost = subtotal * shippingTax;
+  document.getElementById("totalCost").innerHTML = subtotal + shippingCost;
+  document.getElementById("costPrice").innerHTML = shippingCost;
 }
 
 // La siguiente funcion calculara los costos totales con envio incluido:
@@ -96,7 +116,6 @@ function sumaSubtotales() {
 //   let finalCost = 0;
 //   let shippingForm = document.getElementById("shippingForm");
 //   let shippingCost = shippingForm.value;
-// }
 
 // Aqui construimos la funcion que cambiara el valor de una divisa al equivalente de la otra
 function convert(cost, currency2) {
@@ -114,6 +133,7 @@ function getCart(url) {
     return respuesta.json();
   });
 }
+
 // El siguiente codigo se correra una vez que cargue el documento
 document.addEventListener("DOMContentLoaded", function (e) {
   getCart("https://japdevdep.github.io/ecommerce-api/cart/654.json").then(
