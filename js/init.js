@@ -58,6 +58,7 @@ function getAndShowUser() {
 
 function logOut() {
   localStorage.removeItem("user");
+  localStorage.removeItem("profileInfo");
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de

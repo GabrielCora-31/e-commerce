@@ -67,7 +67,7 @@
             <p id="userLogIn"></p>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Mi perfil</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
             <a class="dropdown-item" href="cart.html">Mi carrito</a>
             <a class="dropdown-item" onclick="logOut()" href="index.html"
               >Cerrar sesion</a
@@ -76,22 +76,67 @@
         </div>
       </div>
     </nav>
-    <div class="container p-5">
-      <div
-        class="alert alert-danger"
-        role="alert"
-        style="position: relative; width: auto; top: 0"
-      >
-        <h4 class="alert-heading">¡A trabajar! :)</h4>
-        <p>
-          Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).
-        </p>
-        <hr />
-        <p class="mb-0">
-          Para saber qué debes hacer, fijate en la actividad en CREA
-          correspondiente a esta entrega.
-        </p>
-      </div>
+    <div class="container">
+      <div class="p-4"><h1>Perfil de usuario</h1></div>
+      <div class="form-group col-md-12 text-center">
+        <img id="pic" height="100" alt="Foto seleccionada..." src="">
+        <input type="file" class="form-control-file" onchange="loadPic()" id="inputPic">
+    </div>
+      <form class="needs-validation" id="myProfile">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Primer nombre</label>
+            <input type="text" class="form-control" id="profileName1" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Debes ingresar un nombre válido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Segundo nombre</label>
+            <input type="text" class="form-control" id="profileName2" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Debes ingresar un nombre válido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Primer apellido</label>
+            <input type="text" class="form-control" id="profileSurname1" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Debes ingresar un apellido válido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Segundo apellido</label>
+            <input type="text" class="form-control" id="profileSurname2" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Debes ingresar un apellido válido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Edad</label>
+            <input type="number" class="form-control" id="profileAge" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Debes ingresar una edad
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Correo electrónico</label>
+            <input type="text" class="form-control" id="profileEmail" placeholder="" value="" required >
+            <div class="invalid-feedback">
+              Ingresa un correo válido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+              <label>Telefono</label>
+                <input type="number" class="form-control" id="profileTelephone" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Ingresa un número válido
+                </div>
+          </div>
+        </div>
+        <button class="btn btn-outline-primary" onclick="saveProfileInfo()" type="button">Guardar</button>
+      </form>
+    </div>
     </div>
     <footer class="text-muted bg-light">
       <div class="container">

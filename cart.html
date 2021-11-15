@@ -19,6 +19,7 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
+    <link href="css/font-awesome.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -67,7 +68,7 @@
             <p id="userLogIn"></p>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Mi perfil</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
             <a class="dropdown-item" href="cart.html">Mi carrito</a>
             <a class="dropdown-item" onclick="logOut()" href="index.html"
               >Cerrar sesion</a
@@ -101,10 +102,10 @@
           <tbody id="carrito"></tbody>
         </table>
       </div>
-      <div class="card card-body p-5">
-        <h3>Tipo de envío</h3>
+      <form action="">
+        <div class="card card-body p-5">
+          <h3>Tipo de envío</h3>
 
-        <form action="">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -141,70 +142,155 @@
               Standard 12-15 dias (5%)
             </label>
           </div>
-        </form>
-        <h3 class="ml-0.9 mt-5 mb-1">Dirección de envio</h3>
-        <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Calle</label>
-            <input type="text" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
-              >Numero de puerta</label
-            >
-            <input type="number" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Esquina</label>
-            <input type="text" class="form-control" />
-          </div>
-        </form>
-        <h3 class="ml-0 mt-5 mb-1">Costos</h3>
-        <div class="container m-0">
-          <ul class="list-group border border-primary p-0">
-            <li
-              class="
-                list-group-item
-                d-flex
-                justify-content-between
-                align-items-center
-              "
-            >
-              Sub total
-              <span
-                class="badge badge-primary badge-pill"
-                id="subtotalCost"
-              ></span>
-            </li>
-            <li
-              class="
-                list-group-item
-                d-flex
-                justify-content-between
-                align-items-center
-              "
-            >
-              Costo de envio
-              <span class="badge badge-primary badge-pill" id="costPrice"
-                >0</span
+          <h3 class="ml-0.9 mt-5 mb-1">Dirección de envio</h3>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Calle</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Numero de puerta</label
               >
-            </li>
-            <li
-              class="
-                list-group-item
-                d-flex
-                justify-content-between
-                align-items-center
-              "
-            >
-              TOTAL $
-              <span class="badge badge-primary badge-pill" id="totalCost"
-                >0</span
+              <input type="number" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Esquina</label>
+              <input type="text" class="form-control" />
+            </div>
+          </form>
+          <h3 class="ml-0 mt-5 mb-1">Costos</h3>
+          <div class="container m-0">
+            <ul class="list-group border border-primary p-0">
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
               >
-            </li>
-          </ul>
+                Sub total
+                <span
+                  class="badge badge-primary badge-pill"
+                  id="subtotalCost"
+                ></span>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                Costo de envio
+                <span class="badge badge-primary badge-pill" id="costPrice"
+                  >0</span
+                >
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                TOTAL $
+                <span class="badge badge-primary badge-pill" id="totalCost"
+                  >0</span
+                >
+              </li>
+            </ul>
+          </div>
+          <br />
+          <div class="col-md-6 mb-3">
+            <dl>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-toggle="modal"
+                data-target="#paymentModal"
+              >
+                Seleccionar forma de pago
+              </button>
+            </dl>
+            <dl>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                  Finalizar compra
+                </button>
+              </div>
+            </dl>
+          </div>
         </div>
-      </div>
+        <!-- MODAL -->
+        <div class="modal fade" id="paymentModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">¿Como desea abonar?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" novalidate onsubmit="return habilitedPurchase();">
+              <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header p-0" id="headingTwo">
+                    <h2 class="mb-0"> <button
+                        class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom"
+                        id="bankTransfer" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo" onclick="okTransfer()">
+                        <div class="d-flex align-items-center justify-content-between"> <span>Transferencia
+                            bancaria</span></div>
+                      </button> </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body"> <input type="text" class="form-control" id="bankAccount"
+                        placeholder="" required> </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header p-0">
+                    <h2 class="mb-0"> <button class="btn btn-light btn-block text-left p-3 rounded-0"
+                        data-toggle="collapse" id="card" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne" onclick="okCard()">
+                        <div class="d-flex align-items-center justify-content-between"> <span>Tarjeta de crédito</span>
+                          <div class="icons"> <img
+                            src="https://i.imgur.com/W1vtnOV.png" width="30"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> </div>
+                        </div>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body payment-card-body"> <span class="font-weight-normal card-text">Número de
+                        tarjeta</span>
+                      <div class="input"> <i class="fa fa-credit-card"></i> <input type="text" class="form-control"
+                          id="cardNumber" placeholder="" required> </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-md-6"> <span class="font-weight-normal card-text">Vencimiento</span>
+                          <div class="input"> <i class="fa fa-calendar"></i> <input type="text" class="form-control"
+                              id="cardExpire" placeholder="MM/YY" required> </div>
+                        </div>
+                        <div class="col-md-6"> <span class="font-weight-normal card-text">CVC/CVV</span>
+                          <div class="input"> <i class="fa fa-lock"></i> <input type="text" class="form-control"
+                              id="cardCode" placeholder="Nro. de 3 cifras al dorso" required> </div>
+                        </div>
+                      </div> <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Transacción segura.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+    
+      </form>
     </main>
     <footer class="text-muted bg-light">
       <div class="container">
